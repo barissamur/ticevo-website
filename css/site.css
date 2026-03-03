@@ -49,39 +49,42 @@ img {
   padding: 10px 0;
 }
 
-.logo-mark {
-  width: 14px;
-  height: 14px;
-  border-radius: 4px;
-  background: var(--accent);
-  display: inline-block;
-  flex-shrink: 0;
+.navbar-logo {
+  transition: opacity 0.3s;
 }
 
-.logo-text {
-  font-weight: 800;
-  color: var(--brand);
-  font-size: 20px;
-  letter-spacing: -0.3px;
-}
-
+/* Default: transparent navbar = white links */
 .navbar .nav-link {
   font-size: 14px;
   font-weight: 500;
-  color: #374151;
+  color: rgba(255, 255, 255, 0.85);
   padding: 8px 14px !important;
   border-radius: 8px;
   transition: color 0.2s, background 0.2s;
 }
 
 .navbar .nav-link:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.navbar .nav-link.active {
+  color: #fff;
+  font-weight: 700;
+}
+
+/* Scrolled: white navbar = dark links */
+.navbar.scrolled .nav-link {
+  color: #374151;
+}
+
+.navbar.scrolled .nav-link:hover {
   color: var(--brand);
   background: var(--cream);
 }
 
-.navbar .nav-link.active {
+.navbar.scrolled .nav-link.active {
   color: var(--brand);
-  font-weight: 700;
 }
 
 .btn-accent {
@@ -98,27 +101,13 @@ img {
   transform: translateY(-1px);
 }
 
-/* Hero on dark bg - make navbar text white */
-.navbar:not(.scrolled) .nav-link {
-  color: rgba(255, 255, 255, 0.85);
-}
-
-.navbar:not(.scrolled) .nav-link:hover {
-  color: #fff;
-  background: rgba(255, 255, 255, 0.1);
-}
-
-.navbar:not(.scrolled) .nav-link.active {
-  color: #fff;
-  font-weight: 700;
-}
-
-.navbar:not(.scrolled) .logo-text {
-  color: #fff;
-}
-
-.navbar:not(.scrolled) .navbar-toggler-icon {
+/* Navbar toggler icon: white on transparent, dark on scrolled */
+.navbar .navbar-toggler-icon {
   filter: invert(1);
+}
+
+.navbar.scrolled .navbar-toggler-icon {
+  filter: none;
 }
 
 /* --- Hero Section --- */
